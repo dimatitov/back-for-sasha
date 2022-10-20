@@ -7,7 +7,7 @@
 
 ## Текущие реализованные запросы
  - #### GET запрос [localhost:9000/chat/messages](localhost:9000/chat/messages)
-Результатом запроса будет message - Статус запроса и Response - массив объектов (список сообщений) `{message: string, response: [...{name: string, message: string}] ` }`
+Результатом запроса будет message - Статус запроса и Response - массив объектов (список сообщений) `{message: string, response: [...{name: string, message: string, id: string}] ` }`
  - #### POST запрос [localhost:9000/chat/message](localhost:9000/chat/message)
 Должен принимать в body объект `{name: string, message: string}`. Ответом на запрос будет статусы отправки 
  
