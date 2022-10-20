@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { v4 as uuidv4 } from "uuid";
 
 import { IChatController } from "./chatController.interfaces";
 import { $messages, IUser, setMessage } from "../../store";
@@ -9,6 +10,7 @@ class ChatController implements IChatController {
     try {
       const { name, message } = req.body;
       const user: IUser = {
+        id: uuidv4(),
         name,
         message,
       };
