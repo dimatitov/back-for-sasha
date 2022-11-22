@@ -9,6 +9,7 @@ class ChatController implements IChatController {
   public setMessage = async (req: Request, res: Response): Promise<void> => {
     try {
       const { name, message } = req.body;
+
       const user: IUser = {
         id: uuidv4(),
         name,
@@ -22,7 +23,10 @@ class ChatController implements IChatController {
         res.status(400).json(ResponseStatusMessage.NOT_NAME);
       }
       setMessage(user);
-      res.status(200).json(ResponseStatusMessage.SUCCESS);
+      const messages = $messages.getState();
+      res
+        .status(200)
+        .json({ message: ResponseStatusMessage.SUCCESS, response: messages });
     } catch (e) {
       res.status(400).json(ResponseStatusMessage.ERROR);
     }
